@@ -1,1 +1,17 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+
+:root {
+  /*font-variables*/
+  --main-font: 'Inter-Variable.woff2';
+  --accent-font: 'PressStart2P-Regular.woff';
+  --tittle-weight: 715;
+  --main-weight: 410;
+  --section-font-size: 18px;
+  /**/
+
+  /*inline clamp*/
+  --section-inline-size: clamp(23.688rem, 16.535rem + 30.516vw, 44rem);
+  /**/
+
+}
