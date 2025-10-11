@@ -158,41 +158,71 @@
   margin-inline-end: 7px;
 }
 
-.button__text {
-  border: 2px solid #000;
-  padding: 10.5px 35px;
-  text-align: justify-all;
-  display: inline-block;
-  line-height: 0.9;
-}
 /**/
 
 /*footer__button*/
 /*button text style*/
 .button {
+  position:relative;
   border: none;
   cursor: pointer;
   outline: none;
-  background-color: #fff;
+  color: #fff;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
 }
 
+
+
 .button__text-style {
+  mix-blend-mode: difference;
   font-family: var(--accent-font), sans-serif;
   font-weight: 400;
   font-size: 14px;
 }
 
 .button__text {
-  border: 2px solid #000;
+  inline-size: 118px;
+  text-align: justify-all;
+  display: block;
+  line-height: 0.9;
 }
+
+.button__decoration {
+  position: relative;
+}
+
+.button__decoration::before {
+  content:"";
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  background-color: #000;
+  transform-origin: left;
+}
+
+.button__decoration:hover::before {
+  transform: scaleX(1);
+}
+
+
+
+
+
+
+
+
+
+
 /**/
 
 
 .open-button {
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -207,6 +237,9 @@
 }
 
 .footer__image {
+  position: relative;
+  mix-blend-mode: difference;
+  fill: black;
   inline-size: 21px;
   block-size: 21px;
 }
@@ -244,6 +277,9 @@
   inline-size: 234px;
   line-height: 1.5;
   text-transform: uppercase;
+  font-family: var(--accent-font), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .close-button {
@@ -277,29 +313,7 @@
   transition: box-shadow 0.3s ease;
 }
 
-button span:hover {
-  position: relative;
-}
 
-.button__decoration {
-  position: relative;
-  z-index: 2;
-}
-
-.button__decoration::before {
-  content:"";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  transform: scaleX(0);
-  transition: transform 0.5s ease-in-out;
-  background-color: #000;
-  transform-origin: left;
-}
-
-.button__decoration:hover::before {
-  transform: scaleX(1);
-}
 /**/
 
 @media (width <= 375px) {
@@ -385,11 +399,13 @@ button span:hover {
 
   .heart {
     animation: heart-animation 0.3s ease-in 0.1s 1 forwards;
+    animation-fill-mode: none;
     transform-origin: center;
   }
 
   .sparks {
     animation: sparks-animation 0.3s ease-in 0.3s 1 forwards;
+    animation-fill-mode: none;
     transform-origin: center;
   }
 }
