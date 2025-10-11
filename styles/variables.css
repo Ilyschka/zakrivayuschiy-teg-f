@@ -14,4 +14,10 @@
   --section-inline-size: clamp(23.688rem, 16.535rem + 30.516vw, 44rem);
   /**/
 
+  /**/
+  --animation-fill-color: #FF0000FF;
+  --contour-color: #000;
+  /**/
+  --accent-color: #000;
+
 }

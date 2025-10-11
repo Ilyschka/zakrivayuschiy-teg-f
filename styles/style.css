@@ -41,16 +41,16 @@
 }
 
 .header__tag {
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font), sans-serif;
   font-weight: 400;
-  font-size: 65px;
+  font-size: clamp(3.063rem, 0rem + 14.286vw, 4.063rem);
   text-transform: uppercase;
 }
 
 .header__description {
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font), sans-serif;
   font-weight: 400;
-  font-size: 23px;
+  font-size: clamp(0.875rem, 0rem + 6.667vw, 1.438rem);
   text-transform: uppercase;
 }
 /**/
@@ -73,18 +73,27 @@
 .content__section-tittle {
   padding: 4px 10px;
 }
-.section-title {
+.section-tittle {
   display: block;
   color: #000;
   font-family: var(--main-font), sans-serif;
   font-size: var(--section-font-size);
-  font-variation-settings: 'wght' var(--tittle-weight);
-  /*font-weight: var(--tittle-weight);*/
+  font-weight: var(--tittle-weight, 715);
+}
+
+@supports (font-variation-settings: normal) {
+  .section-tittle {
+    font-variation-settings: 'wght' var(--tittle-weight, 715);
+  }
+
+  .description-text {
+    font-variation-settings: 'wght' var(--main-weight, 410);
+  }
 }
 
 .content__section-image {
   position: relative;
- /* border-block-start: 2px solid #000;
+  /*border-block-start: 2px solid #000;
   border-block-end: 2px solid #000;*/
 }
 .section-image {
@@ -126,9 +135,9 @@
 
 .description-text {
   margin-block-end: 25px;
-  font-family: var(--main-font, sans-serif);
-  font-weight: var(--main-weight);
-  font-size: var(--section-font-size);
+  font-family: var(--main-font), sans-serif;
+  font-weight: var(--main-weight, 410);
+  font-size: var(--section-font-size, 18px);
   line-height: 21px;
 }
 
@@ -138,24 +147,15 @@
 /**/
 
 /*button*/
+
 .content__section-button {
+  justify-items: end;
   margin-inline-end: 25px;
   margin-block-end: 25px;
 }
 
-.button {
-  margin-inline-start: auto;
-  background-color: #fff;
-  outline: none;
-  border: none;
-  inline-size: 178px;
-  block-size: 40px;
-  display: flex;
-  justify-content: space-between;
-}
-
 .like-icon {
-  margin-block-start: 1px;
+  margin-inline-end: 7px;
 }
 
 .button__text {
@@ -163,11 +163,234 @@
   padding: 10.5px 35px;
   text-align: justify-all;
   display: inline-block;
-  font-family: var(--accent-font, sans-serif);
-  font-weight: 400;
-  font-size: 14px;
   line-height: 0.9;
 }
 /**/
 
+/*footer__button*/
+/*button text style*/
+.button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
 
+.button__text-style {
+  font-family: var(--accent-font), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.button__text {
+  border: 2px solid #000;
+}
+/**/
+
+
+.open-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  margin-block-start: 50px;
+  margin-block-end: 100px;
+  inline-size: clamp(19.125rem, 18.487rem + 2.723vw, 20.938rem);
+  min-block-size: 51px;
+  padding: 15px 18px;
+  border: 2px solid #000;
+}
+
+.footer__image {
+  inline-size: 21px;
+  block-size: 21px;
+}
+
+.footer__text {
+  text-wrap: nowrap;
+  line-height: 0.9;
+}
+/**/
+/*dialog*/
+.dialog {
+  inline-size: clamp(21.313rem, 21.048rem + 1.127vw, 22.063rem);
+  border: 2px solid #000;
+  block-size: 191px;
+  padding: 28px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dialog__section {
+  block-size: 63px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialog__image{
+  inline-size: 40px;
+  block-size: 40px;
+}
+
+.dialog__text {
+  inline-size: 234px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.close-button {
+  cursor: pointer;
+  block-size: 38px;
+  border: 2px solid #000;
+}
+
+.close-button span {
+  margin: auto;
+}
+
+.dialog:not([open]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dialog[open]::backdrop {
+  backdrop-filter: brightness(0.25);
+}
+/**/
+/*focus */
+.button__decoration:focus-visible {
+  box-shadow: -2px -2px 0 2px #000;
+  transition: box-shadow 0.3s ease;
+}
+
+button span:hover {
+  position: relative;
+}
+
+.button__decoration {
+  position: relative;
+  z-index: 2;
+}
+
+.button__decoration::before {
+  content:"";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  background-color: #000;
+  transform-origin: left;
+}
+
+.button__decoration:hover::before {
+  transform: scaleX(1);
+}
+/**/
+
+@media (width <= 375px) {
+  .open-button {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .dialog {
+    padding-inline-start: 38px;
+    padding-inline-end: 38px;
+  }
+
+  .dialog__text {
+    padding-left: 20px;
+  }
+
+}
+
+/*heart animation*/
+.main-body {
+  opacity: 0;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.contour {
+  transition: fill 0.1s linear;
+}
+
+.core {
+  transition: fill 0.3s linear;
+  transition-delay: 0.03s;
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover {
+  .core {
+    fill: var(--accent-color, #000);
+  }
+
+  .main-body {
+    fill: var(--accent-color, #000);
+    transition-delay: 0.05s;
+    opacity: 1;
+  }
+}
+
+.like-icon:active {
+  .core {
+    fill: var(--animation-fill-color);
+  }
+
+  .main-body {
+    fill: var(--animation-fill-color);
+    transition-delay: 0.05s;
+    opacity: 1;
+  }
+}
+
+.like-icon.is-liked {
+  .core {
+    fill: var(--animation-fill-color);
+  }
+
+  .main-body {
+    fill: var(--animation-fill-color);
+    transition-delay: 0.05s;
+    opacity: 1;
+  }
+
+  .contour {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s;
+    transition-delay: 0.06s;
+  }
+
+  .heart {
+    animation: heart-animation 0.3s ease-in 0.1s 1 forwards;
+    transform-origin: center;
+  }
+
+  .sparks {
+    animation: sparks-animation 0.3s ease-in 0.3s 1 forwards;
+    transform-origin: center;
+  }
+}
+/**/
