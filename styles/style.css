@@ -14,13 +14,16 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font, sans-serif);
-  font-variation-settings: 'wdth' var(--main-weight);
+  font-variation-settings: "wdth" var(--main-weight);
   background-attachment: fixed;
   background-size: cover;
-  background-image: repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
-                    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
-                    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
-
+  background-image: repeating-linear-gradient(
+      to right,
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
 }
 
 /*header*/
@@ -83,15 +86,16 @@
 
 @supports (font-variation-settings: normal) {
   .section-tittle {
-    font-variation-settings: 'wght' var(--tittle-weight, 715);
+    font-variation-settings: "wght" var(--tittle-weight, 715);
   }
 
   .description-text {
-    font-variation-settings: 'wght' var(--main-weight, 410);
+    font-variation-settings: "wght" var(--main-weight, 410);
   }
 }
 
 .content__section-image {
+  display: block;
   position: relative;
   /*border-block-start: 2px solid #000;
   border-block-end: 2px solid #000;*/
@@ -115,10 +119,7 @@
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
-  text-shadow:  -1px 0 #fff,
-                0 1px #fff,
-                1px 0 #fff,
-                0 -1px #fff;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
 @supports (-webkit-text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff) {
@@ -149,13 +150,12 @@
 /*button*/
 
 .content__section-button {
-  justify-items: end;
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+  align-content: center;
   margin-inline-end: 25px;
   margin-block-end: 25px;
-}
-
-.like-icon {
-  margin-inline-end: 7px;
 }
 
 /**/
@@ -163,7 +163,7 @@
 /*footer__button*/
 /*button text style*/
 .button {
-  position:relative;
+  position: relative;
   border: none;
   cursor: pointer;
   outline: none;
@@ -175,8 +175,6 @@
   overflow: hidden;
 }
 
-
-
 .button__text-style {
   mix-blend-mode: difference;
   font-family: var(--accent-font), sans-serif;
@@ -184,11 +182,28 @@
   font-size: 14px;
 }
 
-.button__text {
-  inline-size: 118px;
-  text-align: justify-all;
+.card__icon-button {
   display: block;
-  line-height: 0.9;
+  border: none;
+  outline: none;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid #000;
+}
+
+.card__like-button {
+  display: block;
+  inline-size: 130px;
+  block-size: 38px;
+  background-color: transparent;
+  border: 2px solid #000;
+  text-align: justify-all;
+  color: #fff;
 }
 
 .button__decoration {
@@ -196,7 +211,7 @@
 }
 
 .button__decoration::before {
-  content:"";
+  content: "";
   position: absolute;
   inset: 0;
   transform: scaleX(0);
@@ -209,17 +224,7 @@
   transform: scaleX(1);
 }
 
-
-
-
-
-
-
-
-
-
 /**/
-
 
 .open-button {
   background-color: #fff;
@@ -236,10 +241,12 @@
   border: 2px solid #000;
 }
 
+.open-button svg {
+  fill: #000;
+}
+
 .footer__image {
   position: relative;
-  mix-blend-mode: difference;
-  fill: black;
   inline-size: 21px;
   block-size: 21px;
 }
@@ -268,7 +275,7 @@
   align-items: center;
 }
 
-.dialog__image{
+.dialog__image {
   inline-size: 40px;
   block-size: 40px;
 }
@@ -313,7 +320,6 @@
   transition: box-shadow 0.3s ease;
 }
 
-
 /**/
 
 @media (width <= 375px) {
@@ -331,7 +337,6 @@
   .dialog__text {
     padding-left: 20px;
   }
-
 }
 
 /*heart animation*/
@@ -409,4 +414,27 @@
     transform-origin: center;
   }
 }
+/**/
+/*section filter*/
+.filter-img-2 {
+  filter: contrast(1350%);
+}
+
+.filter-img-3 {
+  filter: grayscale(0.3);
+}
+
+.filter-img-4 {
+  filter: saturate(200%);
+}
+.filter-img-5 {
+  filter: hue-rotate(180deg);
+}
+.filter-img-6 {
+  filter: invert(0.3) hue-rotate(-65deg);
+}
+.filter-img-7 {
+  filter: sepia(90%);
+}
+
 /**/
