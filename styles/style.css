@@ -322,8 +322,8 @@
 }
 
 .like-icon:focus-visible {
-  inline-size: 27px;
-  block-size: 24px;
+  padding: 0;
+  block-size: 34px;
   outline: 2px solid #000;
 }
 
