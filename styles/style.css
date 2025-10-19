@@ -13,7 +13,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--main-font), fantasy;
   font-variation-settings: "wdth" var(--main-weight);
   background-attachment: fixed;
   background-size: cover;
@@ -33,7 +33,9 @@
   margin-inline-start: auto;
   margin-inline-end: auto;
   inline-size: var(--section-inline-size);
-  min-block-size: 372px;
+  padding-block-start: 130px;
+  padding-block-end: 130px;
+  /*min-block-size: 372px;*/
   background-color: #fff;
   border: 2px solid #000;
   display: flex;
@@ -44,16 +46,16 @@
 }
 
 .header__tag {
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   font-weight: 400;
-  font-size: clamp(3.063rem, 0rem + 14.286vw, 4.063rem);
+  font-size: clamp(3.063rem, 1.909rem + 4.923vw, 4.063rem);
   text-transform: uppercase;
 }
 
 .header__description {
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   font-weight: 400;
-  font-size: clamp(0.875rem, 0rem + 6.667vw, 1.438rem);
+  font-size: clamp(0.875rem, 0.226rem + 2.769vw, 1.438rem);
   text-transform: uppercase;
 }
 /**/
@@ -97,16 +99,16 @@
 .content__section-image {
   display: block;
   position: relative;
-  /*border-block-start: 2px solid #000;
-  border-block-end: 2px solid #000;*/
+  border-block-start: 2px solid #000;
+  border-block-end: 2px solid #000;
 }
 .section-image {
   inline-size: 100%;
   block-size: 100%;
   display: block;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  object-position: center;
+  object-fit: cover;
+  aspect-ratio: 1/1;
 }
 
 .section-label {
@@ -115,7 +117,7 @@
   position: absolute;
   top: 27px;
   right: 25px;
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font), fantasy;
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
@@ -154,7 +156,7 @@
   justify-content: flex-end;
   gap: 7px;
   align-content: center;
-  margin-inline-end: 25px;
+  margin-inline-end: 26px;
   margin-block-end: 25px;
 }
 
@@ -241,14 +243,11 @@
   border: 2px solid #000;
 }
 
-.open-button svg {
-  fill: #000;
-}
-
 .footer__image {
-  position: relative;
-  inline-size: 21px;
+  inline-size: 22px;
   block-size: 21px;
+  fill: currentColor;
+  mix-blend-mode: difference;
 }
 
 .footer__text {
@@ -260,8 +259,7 @@
 .dialog {
   inline-size: clamp(21.313rem, 21.048rem + 1.127vw, 22.063rem);
   border: 2px solid #000;
-  block-size: 191px;
-  padding: 28px;
+  padding: 30px;
   display: flex;
   gap: 30px;
   flex-direction: column;
@@ -269,7 +267,6 @@
 }
 
 .dialog__section {
-  block-size: 63px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -311,7 +308,7 @@
 }
 
 .dialog[open]::backdrop {
-  backdrop-filter: brightness(0.25);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 /**/
 /*focus */
@@ -320,13 +317,33 @@
   transition: box-shadow 0.3s ease;
 }
 
+.like-icon:focus {
+  outline: none;
+}
+
+.like-icon:focus-visible {
+  inline-size: 27px;
+  block-size: 24px;
+  outline: 2px solid #000;
+}
+
 /**/
 
 @media (width <= 375px) {
+  .header__section {
+    padding-top: 122px;
+    padding-bottom: 122px;
+  }
+
   .open-button {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+  }
+
+  .footer__image {
+    inline-size: 28px;
+    block-size: 28px;
   }
 
   .dialog {
@@ -416,25 +433,29 @@
 }
 /**/
 /*section filter*/
-.filter-img-2 {
+.section article:nth-child(2) .filter-blur {
   filter: contrast(1350%);
 }
 
-.filter-img-3 {
+.section article:nth-child(3) .filter-blur {
   filter: grayscale(0.3);
 }
 
-.filter-img-4 {
+.section article:nth-child(4) .filter-blur {
   filter: saturate(200%);
 }
-.filter-img-5 {
+.section article:nth-child(5) .filter-blur {
   filter: hue-rotate(180deg);
 }
-.filter-img-6 {
+.section article:nth-child(6) .filter-blur {
   filter: invert(0.3) hue-rotate(-65deg);
 }
-.filter-img-7 {
+.section article:nth-child(7) .filter-blur {
   filter: sepia(90%);
+}
+
+.section article:nth-child(8) .filter-blur {
+  filter: sepia(50%) hue-rotate(-66deg);
 }
 
 /**/

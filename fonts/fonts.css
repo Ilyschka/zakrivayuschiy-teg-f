@@ -10,7 +10,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: "PressStart2P-Regular.woff";
+  font-family: "PressStart2P.woff";
   src: local("PressStart2P-Regular.woff"),
     url("./PressStart2P-Regular.woff") format("woff");
   font-weight: 400;
