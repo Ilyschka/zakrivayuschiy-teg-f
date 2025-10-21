@@ -12,14 +12,26 @@
     "checkAll": "npm run check && npm run lint",
     "fixAll": "npm run format && npm run lintfix"
   },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
     "browser-sync": "^2.29.1",
+    "cssnano": "^7.1.1",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-concat-css": "^3.1.0",
     "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
+    "html-minifier": "^4.0.0",
+    "postcss": "^8.5.6",
+    "postcss-combine-media-query": "^2.1.0",
     "prettier": "^2.8.8",
     "stylelint": "^15.11.0"
   },
@@ -268,7 +280,6 @@
     "picomatch": "^2.3.1",
     "plugin-error": "^0.1.2",
     "portscanner": "^2.2.0",
-    "postcss": "^8.5.6",
     "postcss-resolve-nested-selector": "^0.1.6",
     "postcss-safe-parser": "^7.0.1",
     "postcss-selector-parser": "^7.1.0",
