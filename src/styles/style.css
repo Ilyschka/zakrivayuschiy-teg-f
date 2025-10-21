@@ -218,6 +218,7 @@
 
 .button__decoration {
   position: relative;
+  transition: box-shadow 0.3s ease;
 }
 
 .button__decoration::before {
@@ -327,7 +328,6 @@ button {
 
 .button__decoration:focus-visible {
   box-shadow: 2px 2px #000;
-  transition: box-shadow 0.3s ease;
 }
 
 .button__decoration:focus {
