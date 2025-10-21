@@ -14,14 +14,11 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font), fantasy;
-  font-variation-settings: "wdth" var(--main-weight);
+  font-variation-settings: 'wdth' var(--main-weight);
   background-attachment: fixed;
   background-size: cover;
-  background-image: repeating-linear-gradient(
-      to right,
-      #d3d3d3 0 2px,
-      transparent 2px 4px
-    ),
+  background-image:
+    repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
     repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
 }
@@ -88,11 +85,11 @@
 
 @supports (font-variation-settings: normal) {
   .section-tittle {
-    font-variation-settings: "wght" var(--tittle-weight, 715);
+    font-variation-settings: 'wght' var(--tittle-weight, 715);
   }
 
   .description-text {
-    font-variation-settings: "wght" var(--main-weight, 410);
+    font-variation-settings: 'wght' var(--main-weight, 410);
   }
 }
 
@@ -121,7 +118,11 @@
   font-weight: 400;
   font-size: 14px;
   text-transform: uppercase;
-  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  text-shadow:
+    -1px 0 #fff,
+    0 1px #fff,
+    1px 0 #fff,
+    0 -1px #fff;
 }
 
 @supports (-webkit-text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff) {
@@ -220,7 +221,7 @@
 }
 
 .button__decoration::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   transform: scaleX(0);
@@ -325,16 +326,13 @@ button {
 }
 
 .button__decoration:focus-visible {
-  box-shadow: 2px 2px 0 2px #000;
+  box-shadow: 2px 2px #000;
   transition: box-shadow 0.3s ease;
 }
 
 .button__decoration:focus {
   outline: none;
 }
-
-
-
 
 /**/
 

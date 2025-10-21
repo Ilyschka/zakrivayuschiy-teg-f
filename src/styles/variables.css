@@ -2,8 +2,8 @@
 
 :root {
   /*font-variables*/
-  --main-font: "Inter-Variable.woff2";
-  --accent-font: "PressStart2P.woff";
+  --main-font: 'Inter-Variable.woff2';
+  --accent-font: 'PressStart2P.woff';
   --tittle-weight: 715;
   --main-weight: 410;
   --section-font-size: 18px;
